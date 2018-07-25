@@ -1,0 +1,11 @@
+{
+  "name": "bazar",
+  "version": "1.0.0",
+  "description": "online shop",
+  "main": "app.js",
+  "scripts": {
+   "start": "http-server -a localhost -p 5000 -c-1"
+  },
+  "author": "Chandan",
+  "license": "ISC"
+}

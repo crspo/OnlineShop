@@ -1,0 +1,85 @@
+
+<div ng-controller="productCtrl" >
+	
+		<div class="col-md-10">
+		 		<div class="panel panel-primary">
+		    		<div class="panel-heading">
+		        		<h3 class="panel-title">Latest Android Phones</h3>
+		    		</div>
+		        	<div ng-repeat=" phone in androidPhones">
+			            <label>
+			                <input class= "col-sm-1" type="radio" name="iphones">
+			                <div class="col-sm-4">
+				                <div>Product: {{phone.name}}</div>
+				                <div>Operating System: {{phone.os}}</div>
+				                <div>Price: ${{phone.price}}</div>
+				                
+				             </div>
+				             <div class="col-sm-4">
+			                	<img ng-src="{{phone.image}}"
+			                		alt="{{phone.name}}"
+			                		style="height:200px; width: 170px;"/>
+			                </div>
+			            	<div class= "col-sm-3">
+			                	<a href="#">Specifications</a>
+			                		<ul ng-repeat="specs in phone.specifications">
+			                			<li>
+			                				Processor: {{specs.processor}}
+			                			</li>
+			                			<li>
+			                				Screen Size: {{specs.screen}}
+			                			</li>
+			                			<li>
+			                				Memory: {{specs.memory}}
+			                			</li>
+			                		</ul>
+			                	
+			            	</div>
+			            </label>
+		        	</div>
+				</div>
+			</div>
+
+
+
+		  	<div class="col-xs-7 col-md-8 col-sm-8 col-lg-8">
+	 		<div class="panel panel-primary">
+	    		<div class="panel-heading">
+	        		<h3 class="panel-title">Latest iPhones</h3>
+	    		</div>
+	        	<div ng-repeat=" phone in iPhones">
+		            <label>
+		                <input class= "col-sm-1" type="radio" name="iphones">
+		                <div class="col-sm-4">
+			                <div>Product: {{phone.name}}</div>
+			                <div>Operating System: {{phone.os}}</div>
+			                <div>Price: ${{phone.price}}</div>
+			                
+			             </div>
+			             <div class="col-sm-4">
+		                	<img ng-src="{{phone.image}}"
+		                		alt="{{phone.name}}"
+		                		style="height:200px; width: 170px;"/>
+		                </div>
+		            	<div class= "col-sm-3">
+		                	<a href="#">Specifications</a>
+		                		<ul ng-repeat="specs in phone.specifications">
+		                			<li>
+		                				Processor: {{specs.processor}}
+		                			</li>
+		                			<li>
+		                				Screen Size: {{specs.screen}}
+		                			</li>
+		                			<li>
+		                				Memory: {{specs.memory}}
+		                			</li>
+		                		</ul>
+		                	
+		            	</div>
+		            </label>
+	        	</div>
+			</div>
+		</div>
+
+
+</div>
