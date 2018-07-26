@@ -1,53 +1,68 @@
 
-<div ng-controller="productCtrl" >
-	
-		<div class="col-md-10">
+<link rel="stylesheet" type="text/css" href="/product/product.css">
+<!-- <section class="mainBody"> -->
+	<div style="margin-left: 20px; margin-top: 10px; margin-bottom: -10px; background-color: dodgerblue;">Search : <input type="text" ng-model="searchPhone" placeholder="search model"></div><br>
+	<div ng-controller="productCtrl" class="mainBody">
+		<div class="container-fluid" id= "group">
 		 		<div class="panel panel-primary">
 		    		<div class="panel-heading">
-		        		<h3 class="panel-title">Latest Android Phones</h3>
+		        		<h3 class="panel-title">Latest Phones</h3>
 		    		</div>
-		        	<div ng-repeat=" phone in androidPhones">
-			            <label>
-			                <input class= "col-sm-1" type="radio" name="iphones">
-			                <div class="col-sm-4">
-				                <div>Product: {{phone.name}}</div>
-				                <div>Operating System: {{phone.os}}</div>
-				                <div>Price: ${{phone.price}}</div>
-				                
-				             </div>
-				             <div class="col-sm-4">
-			                	<img ng-src="{{phone.image}}"
-			                		alt="{{phone.name}}"
-			                		style="height:200px; width: 170px;"/>
-			                </div>
-			            	<div class= "col-sm-3">
-			                	<a href="#">Specifications</a>
-			                		<ul ng-repeat="specs in phone.specifications">
-			                			<li>
-			                				Processor: {{specs.processor}}
-			                			</li>
-			                			<li>
-			                				Screen Size: {{specs.screen}}
-			                			</li>
-			                			<li>
-			                				Memory: {{specs.memory}}
-			                			</li>
-			                		</ul>
-			                	
-			            	</div>
-			            </label>
-		        	</div>
+		    		<!-- select android or iphone? -->
+		        	<div class= "product" ng-repeat=" phone in phones">
+		        		
+		        			<!-- select phone model -->
+
+		        		<div ng-repeat="type in phone">
+
+		        			<div ng-repeat="model in type | filter:searchPhone">
+		        				<input class= "col-sm-1" type="radio" name="mobilePhones">
+		        				<h4> <strong>{{model.name}}</strong></h4> 
+
+				            	<label>         
+					                <div class="col-sm-4 " style="margin-left: 60px">
+						                <div>Operating System: {{model.os}}</div>
+						                <div>Price: ${{model.price}}</div>
+						                
+						             </div>
+
+					             	<div class="col-sm-4">
+					                	<img ng-src="{{model.image}}" alt="{{model.name}}" style="height:200px; width: 170px;"/>
+				                	</div>
+				                	<div class= "col-sm-3" >
+			            			<input type="checkbox" ng-model="showSpecs"/>Show Specifications
+
+				                		<ul ng-show="showSpecs" ng-repeat="specs in model.specifications" style="color: #993300">
+				                			<li>
+				                				Processor: {{specs.processor}}
+				                			</li>
+				                			<li>
+				                				Screen Size: {{specs.screen}}
+				                			</li>
+				                			<li>
+				                				Memory: {{specs.memory}}
+				                			</li>
+				                		</ul>
+				                	</div>
+				            		           	
+				            	</label>
+				        	</div>
+		        		</div>
+		        </div>
 				</div>
 			</div>
 
 
 
-		  	<div class="col-xs-7 col-md-8 col-sm-8 col-lg-8">
-	 		<div class="panel panel-primary">
+<!-- 		  	<div class="container-fluid" id="group2">
+		  		Search Model: 
+		  		<input type="text" ng-model="searchPhone" placeholder="search model">
+		  			<br><br>
+	 		<div class="panel panel-primary" >
 	    		<div class="panel-heading">
 	        		<h3 class="panel-title">Latest iPhones</h3>
 	    		</div>
-	        	<div ng-repeat=" phone in iPhones">
+	        	<div ng-repeat=" phone in iPhones | filter:searchPhone.name">
 		            <label>
 		                <input class= "col-sm-1" type="radio" name="iphones">
 		                <div class="col-sm-4">
@@ -64,7 +79,7 @@
 		            	<div class= "col-sm-3">
 		                	<a href="#">Specifications</a>
 		                		<ul ng-repeat="specs in phone.specifications">
-		                			<li>
+		                			<li ng-hide>
 		                				Processor: {{specs.processor}}
 		                			</li>
 		                			<li>
@@ -79,7 +94,8 @@
 		            </label>
 	        	</div>
 			</div>
-		</div>
+		</div> -->
 
 
-</div>
+	</div>
+<!-- </section> -->
